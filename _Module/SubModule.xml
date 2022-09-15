@@ -1,0 +1,54 @@
+﻿<Module>
+	<Name value="More Bandits"/>
+	<Id value="MoreBandits"/>
+	<Version value="v1.0.0"/>
+	<DefaultModule value="false"/>
+	<SingleplayerModule value="true"/>
+	<MultiplayerModule value="false"/>
+	<Official value="false"/>
+	<DependedModules>
+		<DependedModule Id="Native" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="SandBoxCore" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="Sandbox" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="CustomBattle" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="StoryMode" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="Bannerlord.Harmony"/>
+		<DependedModule Id="Bannerlord.ButterLib"/>
+		<DependedModule Id="Bannerlord.UIExtenderEx"/>
+	</DependedModules>
+	<DependedModuleMetadata>
+		<DependedModuleMetadata id="Bannerlord.Harmony" order="LoadBeforeThis" optional="false"/>
+		<DependedModuleMetadata id="Bannerlord.ModuleLoader" order="LoadBeforeThis" optional="true"/>
+		<DependedModuleMetadata id="Bannerlord.ButterLib" order="LoadBeforeThis" optional="false"/>
+		<DependedModuleMetadata id="Bannerlord.UIExtenderEx" order="LoadBeforeThis" optional="false"/>
+		<DependedModuleMetadata id="Bannerlord.MBOptionScreen" order="LoadBeforeThis" optional="false"/>
+		<DependedModuleMetadata id="Native" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="SandBoxCore" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="Sandbox" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="StoryMode" order="LoadBeforeThis"/>
+		<DependedModuleMetadata id="CustomBattle" order="LoadBeforeThis" optional="true"/>
+	</DependedModuleMetadata>
+	<SubModules>
+		<SubModule>
+			<Name value="MoreBandits"/>
+			<DLLName value="MoreBandits.dll"/>
+			<SubModuleClassType value="MoreBandits.Main"/>
+			<Tags>
+				<Tag key="DedicatedServerType" value="none"/>
+				<Tag key="IsNoRenderModeElement" value="false"/>
+			</Tags>
+		</SubModule>
+		<SubModule>
+			<Name value="MCMv4"/>
+			<DLLName value="MCMv4.dll"/>
+			<SubModuleClassType value="MCM.MCMSubModule"/>
+			<Tags/>
+		</SubModule>
+		<SubModule>
+			<Name value="MCMv4 Basic Implementation"/>
+			<DLLName value="MCMv4.dll"/>
+			<SubModuleClassType value="MCM.Implementation.MCMImplementationSubModule"/>
+			<Tags/>
+		</SubModule>
+	</SubModules>
+</Module>
