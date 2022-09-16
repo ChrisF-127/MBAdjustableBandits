@@ -23,9 +23,19 @@ namespace MoreBandits
 
 			try
 			{
+				var method = typeof(MobileParty).GetMethod("FillPartyStacks", BindingFlags.Instance | BindingFlags.NonPublic);
+				var patches = Harmony.GetPatchInfo(method);
+				if (patches?.Transpilers?.Count > 0)
+				{
+					string output = "";
+					foreach (var patch in patches.Transpilers)
+						output += patch.ToString();
+					FileLog.Log("MoreBandits: Warning: transpiler patches detected: " + output);
+				}
+
 				var harmony = new Harmony("com.sy.morebandits");
 				harmony.Patch(
-					typeof(MobileParty).GetMethod("FillPartyStacks", BindingFlags.Instance | BindingFlags.NonPublic),
+					method,
 					transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_MobileParty_FillPartyStacks)));
 
 				//harmony.Patch(

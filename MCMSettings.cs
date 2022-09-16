@@ -34,16 +34,5 @@ namespace MoreBandits
 			"Bandit Party Size Multipliers", 
 			GroupOrder = 0)]
 		public float BanditMultiplier { get; set; } = 1f;
-
-
-		public override IDictionary<string, Func<BaseSettings>> GetAvailablePresets()
-		{
-			IDictionary<string, Func<BaseSettings>> availablePresets = base.GetAvailablePresets();
-			availablePresets.Add("Native", () => new MCMSettings
-			{
-				BanditMultiplier = 1f,
-			});
-			return availablePresets;
-		}
 	}
 }
