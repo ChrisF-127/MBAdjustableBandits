@@ -1,4 +1,5 @@
-﻿using MCM.Abstractions.Settings.Base.Global;
+﻿using HarmonyLib;
+using MCM.Abstractions.Settings.Base.Global;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,11 @@ namespace MoreBandits
 			// TODO match faction to faction specific multiplier
 			var modifier = Settings.BanditMultiplier;
 
+			//string s = $"{mobileParty.MapFaction}\nbefore:\t{f:0.000}\t{f2:0.000}\t{f3:0.000}";
 			f = Limit(f * modifier);
 			f2 = Limit(f2 * modifier);
 			f3 = Limit(f3 * modifier);
+			//FileLog.Log(s + $" after:\t{f:0.000}\t{f2:0.000}\t{f3:0.000}");
 		}
 		private static float Limit(float f) => f > 1f ? f : 1f;
 	}
