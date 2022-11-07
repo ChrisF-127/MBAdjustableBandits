@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace MoreBandits
@@ -16,6 +18,25 @@ namespace MoreBandits
 		public static MCMSettings Settings { get; private set; }
 
 		private bool isInitialized = false;
+
+		protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
+		{
+			base.OnGameStart(game, gameStarterObject);
+			if (game.GameType is Campaign)
+			{
+				try
+				{
+					if (gameStarterObject is CampaignGameStarter campaignGameStarter)
+						campaignGameStarter.AddModel(new MoreBanditsDensityModel());
+					else
+						throw new Exception($"Unknown {nameof(gameStarterObject)}: '{gameStarterObject?.GetType()}'");
+				}
+				catch (Exception exception)
+				{
+					FileLog.Log("MoreBandits: " + exception.ToString());
+				}
+			}
+		}
 
 		protected override void OnBeforeInitialModuleScreenSetAsRoot()
 		{

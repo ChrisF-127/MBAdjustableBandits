@@ -21,17 +21,110 @@ namespace MoreBandits
 		public override string FormatType => "json";
 
 
+		// --- BANDIT POPULATION
+
 		[SettingPropertyFloatingInteger(
 			"Bandit Party Size Multiplier", 
 			0.01f, 
 			10.0f, 
 			"#0%", 
 			RequireRestart = false,
-			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values decrease performance and may have negative influence on game experience. [Native: 100%]", 
-			Order = 1)]
-		[SettingPropertyGroup(
-			"Bandit Party Size Multipliers", 
-			GroupOrder = 0)]
+			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values decrease performance and may have negative influence on game experience. [Native: 100%]",
+			Order = 0)]
+		[SettingPropertyGroup("Bandit Population")]
 		public float BanditMultiplier { get; set; } = 1f;
+
+
+		[SettingPropertyInteger(
+			"Maximum Number of Looter Parties",
+			50,
+			600,
+			"0 Parties",
+			RequireRestart = false,
+			HintText = "[Native: 150]",
+			Order = 1)]
+		[SettingPropertyGroup("Bandit Population")]
+		public int NumberOfMaximumLooterParties { get; set; } = 150;
+
+		[SettingPropertyInteger(
+			"Maximum Parties around Hideout",
+			1,
+			32,
+			"0 Parties",
+			RequireRestart = false,
+			HintText = "[Native: 8]",
+			Order = 2)]
+		[SettingPropertyGroup("Bandit Population")]
+		public int NumberOfMaximumBanditPartiesAroundEachHideout { get; set; } = 8;
+
+
+		// --- HIDEOUTS
+
+		[SettingPropertyInteger(
+			"Initial Hideouts per Faction",
+			1,
+			15,
+			"0 Hideouts",
+			RequireRestart = false,
+			HintText = "[Native: 3]",
+			Order = 0)]
+		[SettingPropertyGroup("Hideouts")]
+		public int NumberOfInitialHideoutsAtEachBanditFaction { get; set; } = 3;
+
+		[SettingPropertyInteger(
+			"Maximum Hideouts per Faction",
+			1,
+			25,
+			"0 Hideouts",
+			RequireRestart = false,
+			HintText = "[Native: 10]",
+			Order = 1)]
+		[SettingPropertyGroup("Hideouts")]
+		public int NumberOfMaximumHideoutsAtEachBanditFaction { get; set; } = 10;
+
+		[SettingPropertyInteger(
+			"Minimum Parties to Infest Hideout",
+			1,
+			10,
+			"0 Parties",
+			RequireRestart = false,
+			HintText = "[Native: 2]",
+			Order = 2)]
+		[SettingPropertyGroup("Hideouts")]
+		public int NumberOfMinimumBanditPartiesInAHideoutToInfestIt { get; set; } = 2;
+
+		[SettingPropertyInteger(
+			"Maximum Parties in Hideout",
+			1,
+			10,
+			"0 Parties",
+			RequireRestart = false,
+			HintText = "[Native: 4]",
+			Order = 3)]
+		[SettingPropertyGroup("Hideouts")]
+		public int NumberOfMaximumBanditPartiesInEachHideout { get; set; } = 4;
+
+
+		[SettingPropertyInteger(
+			"Minimum Bandits Troops in Hideout Mission",
+			1,
+			100,
+			"0 Troops",
+			RequireRestart = false,
+			HintText = "[Native: 10]",
+			Order = 4)]
+		[SettingPropertyGroup("Hideouts")]
+		public int NumberOfMinimumBanditTroopsInHideoutMission { get; set; } = 10;
+
+		[SettingPropertyInteger(
+			"Maximum Player Troops in Hideout Mission",
+			1,
+			100,
+			"0 Troops",
+			RequireRestart = false,
+			HintText = "[Native: 10]",
+			Order = 5)]
+		[SettingPropertyGroup("Hideouts")]
+		public int PlayerMaximumTroopCountForHideoutMission { get; set; } = 10;
 	}
 }
