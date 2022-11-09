@@ -11,9 +11,9 @@ using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace MoreBandits
+namespace AdjustableBandits
 {
-	public class Main : MBSubModuleBase
+	public class AdjustableBandits : MBSubModuleBase
 	{
 		public static MCMSettings Settings { get; private set; }
 
@@ -27,13 +27,13 @@ namespace MoreBandits
 				try
 				{
 					if (gameStarterObject is CampaignGameStarter campaignGameStarter)
-						campaignGameStarter.AddModel(new MoreBanditsDensityModel());
+						campaignGameStarter.AddModel(new AdjustableBanditsDensityModel());
 					else
 						throw new Exception($"Unknown {nameof(gameStarterObject)}: '{gameStarterObject?.GetType()}'");
 				}
 				catch (Exception exception)
 				{
-					FileLog.Log("MoreBandits: " + exception.ToString());
+					FileLog.Log($"{nameof(AdjustableBandits)}: {exception}");
 				}
 			}
 		}

@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem.Party;
 
-namespace MoreBandits
+namespace AdjustableBandits
 {
 	public class MCMSettings : AttributeGlobalSettings<MCMSettings>
 	{
-		public override string Id => "MoreBandits";
+		public override string Id => "AdjustableBandits";
 
-		public override string DisplayName => "More Bandits";
+		public override string DisplayName => "Adjustable Bandits";
 
-		public override string FolderName => "MoreBandits";
+		public override string FolderName => "AdjustableBandits";
 
 		public override string FormatType => "json";
 
@@ -29,7 +29,7 @@ namespace MoreBandits
 			10.0f, 
 			"#0%", 
 			RequireRestart = false,
-			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values decrease performance and may have negative influence on game experience. [Native: 100%]",
+			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Native: 100%]",
 			Order = 0)]
 		[SettingPropertyGroup("Bandit Population")]
 		public float BanditMultiplier { get; set; } = 1f;

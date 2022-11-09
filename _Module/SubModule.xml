@@ -1,17 +1,17 @@
 ﻿<Module>
-	<Name value="More Bandits"/>
-	<Id value="MoreBandits"/>
+	<Name value="Adjustable Bandits"/>
+	<Id value="AdjustableBandits"/>
 	<Version value="v1.0.0"/>
 	<DefaultModule value="false"/>
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
 	<Official value="false"/>
 	<DependedModules>
-		<DependedModule Id="Native" DependentVersion="e1.8.0" Optional="false"/>
-		<DependedModule Id="SandBoxCore" DependentVersion="e1.8.0" Optional="false"/>
-		<DependedModule Id="Sandbox" DependentVersion="e1.8.0" Optional="false"/>
-		<DependedModule Id="CustomBattle" DependentVersion="e1.8.0" Optional="false"/>
-		<DependedModule Id="StoryMode" DependentVersion="e1.8.0" Optional="false"/>
+		<DependedModule Id="Native" Optional="false"/>
+		<DependedModule Id="SandBoxCore" Optional="false"/>
+		<DependedModule Id="Sandbox" Optional="false"/>
+		<DependedModule Id="CustomBattle" Optional="false"/>
+		<DependedModule Id="StoryMode" Optional="false"/>
 		<DependedModule Id="Bannerlord.Harmony"/>
 		<DependedModule Id="Bannerlord.ButterLib"/>
 		<DependedModule Id="Bannerlord.UIExtenderEx"/>
@@ -30,25 +30,13 @@
 	</DependedModuleMetadata>
 	<SubModules>
 		<SubModule>
-			<Name value="MoreBandits"/>
-			<DLLName value="MoreBandits.dll"/>
-			<SubModuleClassType value="MoreBandits.Main"/>
+			<Name value="AdjustableBandits"/>
+			<DLLName value="AdjustableBandits.dll"/>
+			<SubModuleClassType value="AdjustableBandits.AdjustableBandits"/>
 			<Tags>
 				<Tag key="DedicatedServerType" value="none"/>
 				<Tag key="IsNoRenderModeElement" value="false"/>
 			</Tags>
-		</SubModule>
-		<SubModule>
-			<Name value="MCMv4"/>
-			<DLLName value="MCMv4.dll"/>
-			<SubModuleClassType value="MCM.MCMSubModule"/>
-			<Tags/>
-		</SubModule>
-		<SubModule>
-			<Name value="MCMv4 Basic Implementation"/>
-			<DLLName value="MCMv4.dll"/>
-			<SubModuleClassType value="MCM.Implementation.MCMImplementationSubModule"/>
-			<Tags/>
 		</SubModule>
 	</SubModules>
 </Module>

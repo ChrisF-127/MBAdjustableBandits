@@ -11,7 +11,7 @@ using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 
-namespace MoreBandits
+namespace AdjustableBandits
 {
 	internal static class HarmonyPatches
 	{
@@ -31,18 +31,13 @@ namespace MoreBandits
 					string output = "";
 					foreach (var patch in patches.Transpilers)
 						output += patch.ToString();
-					FileLog.Log("MoreBandits: Warning: transpiler patches detected: " + output);
+					FileLog.Log($"{nameof(AdjustableBandits)}: Warning: transpiler patches detected: {output}");
 				}
 
-				var harmony = new Harmony("com.sy.morebandits");
+				var harmony = new Harmony("sy.adjustablebandits");
 
 				// Patch MobileParty.FillPartyStacks
 				harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_MobileParty_FillPartyStacks)));
-
-				// Disable NoBanditsNoCry.FillPartyStacks patch
-				method = Type.GetType("NoBanditsNoCry.Patches.FillPartyStacks, NoBanditsNoCry, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null")?.GetMethod("Prefix", BindingFlags.Public | BindingFlags.Static);
-				if (method != null)
-					harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_NoBanditsNoCry_FillPartyStacks)));
 			}
 			catch (Exception e)
 			{
@@ -78,7 +73,7 @@ namespace MoreBandits
 							list.Insert(++i, new CodeInstruction(OpCodes.Ldloca_S, lb_f));  // 7
 							list.Insert(++i, new CodeInstruction(OpCodes.Ldloca_S, lb_f2)); // 8
 							list.Insert(++i, new CodeInstruction(OpCodes.Ldloca_S, lb_f3)); // 9
-							list.Insert(++i, new CodeInstruction(OpCodes.Call, typeof(Main).GetMethod(nameof(Main.ModifyVariables), BindingFlags.Static | BindingFlags.Public)));
+							list.Insert(++i, new CodeInstruction(OpCodes.Call, typeof(AdjustableBandits).GetMethod(nameof(AdjustableBandits.ModifyVariables), BindingFlags.Static | BindingFlags.Public)));
 							applied = true;
 							break;
 						}
@@ -89,14 +84,8 @@ namespace MoreBandits
 			//foreach (var instruction in list)
 			//	FileLog.Log(instruction.ToString());
 			if (!applied)
-				throw new Exception("MoreBandits: failed to apply Harmony-patch 'Transpiler_MobileParty_FillPartyStacks'");
+				throw new Exception($"{nameof(AdjustableBandits)}: failed to apply Harmony-patch '{nameof(Transpiler_MobileParty_FillPartyStacks)}'");
 			return list;
-		}
-
-		private static IEnumerable<CodeInstruction> Transpiler_NoBanditsNoCry_FillPartyStacks(IEnumerable<CodeInstruction> instructions)
-		{
-			yield return new CodeInstruction(OpCodes.Ldc_I4_1);
-			yield return new CodeInstruction(OpCodes.Ret);
 		}
 	}
 }

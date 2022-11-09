@@ -10,30 +10,30 @@ using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Library;
 
-namespace MoreBandits
+namespace AdjustableBandits
 {
-	internal class MoreBanditsDensityModel : DefaultBanditDensityModel
+	internal class AdjustableBanditsDensityModel : DefaultBanditDensityModel
 	{
 		public override int NumberOfMaximumLooterParties =>
-			Main.Settings.NumberOfMaximumLooterParties;
+			AdjustableBandits.Settings.NumberOfMaximumLooterParties;
 
 		public override int NumberOfMinimumBanditPartiesInAHideoutToInfestIt =>
-			Main.Settings.NumberOfMinimumBanditPartiesInAHideoutToInfestIt;
+			AdjustableBandits.Settings.NumberOfMinimumBanditPartiesInAHideoutToInfestIt;
 
 		public override int NumberOfMaximumBanditPartiesInEachHideout =>
-			Main.Settings.NumberOfMaximumBanditPartiesInEachHideout;
+			AdjustableBandits.Settings.NumberOfMaximumBanditPartiesInEachHideout;
 
 		public override int NumberOfMaximumBanditPartiesAroundEachHideout =>
-			Main.Settings.NumberOfMaximumBanditPartiesAroundEachHideout;
+			AdjustableBandits.Settings.NumberOfMaximumBanditPartiesAroundEachHideout;
 
 		public override int NumberOfMaximumHideoutsAtEachBanditFaction =>
-			Main.Settings.NumberOfMaximumHideoutsAtEachBanditFaction;
+			AdjustableBandits.Settings.NumberOfMaximumHideoutsAtEachBanditFaction;
 
 		public override int NumberOfInitialHideoutsAtEachBanditFaction =>
-			Main.Settings.NumberOfInitialHideoutsAtEachBanditFaction;
+			AdjustableBandits.Settings.NumberOfInitialHideoutsAtEachBanditFaction;
 
 		public override int NumberOfMinimumBanditTroopsInHideoutMission => 
-			Main.Settings.NumberOfMinimumBanditTroopsInHideoutMission;
+			AdjustableBandits.Settings.NumberOfMinimumBanditTroopsInHideoutMission;
 
 		//public override int NumberOfMaximumTroopCountForFirstFightInHideout => 
 		//	MathF.Floor(6f * (2f + Campaign.Current.PlayerProgress));
@@ -44,7 +44,7 @@ namespace MoreBandits
 
 		public override int GetPlayerMaximumTroopCountForHideoutMission(MobileParty party)
 		{
-			float troopCount = Main.Settings.PlayerMaximumTroopCountForHideoutMission;
+			float troopCount = AdjustableBandits.Settings.PlayerMaximumTroopCountForHideoutMission;
 			if (party.HasPerk(DefaultPerks.Tactics.SmallUnitTactics))
 				troopCount += DefaultPerks.Tactics.SmallUnitTactics.PrimaryBonus;
 			return MathF.Round(troopCount);
