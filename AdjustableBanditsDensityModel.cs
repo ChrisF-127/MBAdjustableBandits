@@ -35,12 +35,12 @@ namespace AdjustableBandits
 		public override int NumberOfMinimumBanditTroopsInHideoutMission => 
 			AdjustableBandits.Settings.NumberOfMinimumBanditTroopsInHideoutMission;
 
-		//public override int NumberOfMaximumTroopCountForFirstFightInHideout => 
-		//	MathF.Floor(6f * (2f + Campaign.Current.PlayerProgress));
-		//public override int NumberOfMaximumTroopCountForBossFightInHideout => 
-		//	MathF.Floor(1f + 5f * (1f + Campaign.Current.PlayerProgress));
-		//public override float SpawnPercentageForFirstFightInHideoutMission => 
-		//	0.75f;
+		public override int NumberOfMaximumTroopCountForFirstFightInHideout => 
+			MathF.Floor(AdjustableBandits.Settings.NumberOfMaximumTroopCountForFirstFightInHideout * (2f + Campaign.Current.PlayerProgress));
+		public override int NumberOfMaximumTroopCountForBossFightInHideout =>
+			MathF.Floor(1f + AdjustableBandits.Settings.NumberOfMaximumTroopCountForBossFightInHideout * (1f + Campaign.Current.PlayerProgress));
+		public override float SpawnPercentageForFirstFightInHideoutMission =>
+			AdjustableBandits.Settings.SpawnPercentageForFirstFightInHideoutMission;
 
 		public override int GetPlayerMaximumTroopCountForHideoutMission(MobileParty party)
 		{

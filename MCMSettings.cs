@@ -27,7 +27,7 @@ namespace AdjustableBandits
 			"Bandit Party Size Multiplier", 
 			0.01f, 
 			10.0f, 
-			"#0%", 
+			"0%", 
 			RequireRestart = false,
 			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Native: 100%]",
 			Order = 0)]
@@ -104,6 +104,39 @@ namespace AdjustableBandits
 		[SettingPropertyGroup("Hideouts")]
 		public int NumberOfMaximumBanditPartiesInEachHideout { get; set; } = 4;
 
+		[SettingPropertyFloatingInteger(
+			"Maximum Troop Count Factor - First Fight",
+			0f,
+			100f,
+			"0",
+			RequireRestart = false,
+			HintText = "Actual troop count depends on player progress [Native: 6]",
+			Order = 4)]
+		[SettingPropertyGroup("Hideouts")]
+		public float NumberOfMaximumTroopCountForFirstFightInHideout { get; set; } = 6f;
+
+		[SettingPropertyFloatingInteger(
+			"Maximum Troop Count Factor - Boss Fight",
+			0f,
+			100f,
+			"0",
+			RequireRestart = false,
+			HintText = "Actual troop count depends on player progress [Native: 5]",
+			Order = 5)]
+		[SettingPropertyGroup("Hideouts")]
+		public float NumberOfMaximumTroopCountForBossFightInHideout { get; set; } = 5f;
+
+		[SettingPropertyFloatingInteger(
+			"Spawn Percentage in First Fight",
+			0f,
+			1f,
+			"0%",
+			RequireRestart = false,
+			HintText = "[Native: 75%]",
+			Order = 6)]
+		[SettingPropertyGroup("Hideouts")]
+		public float SpawnPercentageForFirstFightInHideoutMission { get; set; } = 0.75f;
+
 
 		[SettingPropertyInteger(
 			"Minimum Bandits Troops in Hideout Mission",
@@ -112,7 +145,7 @@ namespace AdjustableBandits
 			"0 Troops",
 			RequireRestart = false,
 			HintText = "[Native: 10]",
-			Order = 4)]
+			Order = 7)]
 		[SettingPropertyGroup("Hideouts")]
 		public int NumberOfMinimumBanditTroopsInHideoutMission { get; set; } = 10;
 
@@ -123,7 +156,7 @@ namespace AdjustableBandits
 			"0 Troops",
 			RequireRestart = false,
 			HintText = "[Native: 10]",
-			Order = 5)]
+			Order = 8)]
 		[SettingPropertyGroup("Hideouts")]
 		public int PlayerMaximumTroopCountForHideoutMission { get; set; } = 10;
 	}

@@ -1,0 +1,49 @@
+Starting...
+Item created. Item ID is 2896450980
+Status: k_EItemUpdateStatusPreparingConfig 0 / 0
+Status: k_EItemUpdateStatusPreparingConfig 0 / 0
+Status: k_EItemUpdateStatusPreparingConfig 0 / 0
+Status: k_EItemUpdateStatusPreparingConfig 0 / 0
+Status: k_EItemUpdateStatusPreparingContent 0 / 0
+Status: k_EItemUpdateStatusPreparingContent 0 / 0
+Status: k_EItemUpdateStatusPreparingContent 0 / 0
+Status: k_EItemUpdateStatusPreparingContent 0 / 14224
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 0
+Status: k_EItemUpdateStatusUploadingContent 0 / 14224
+Status: k_EItemUpdateStatusUploadingContent 0 / 14224
+Status: k_EItemUpdateStatusUploadingContent 0 / 14224
+Status: k_EItemUpdateStatusUploadingContent 1936 / 14224
+Status: k_EItemUpdateStatusUploadingContent 1936 / 14224
+Status: k_EItemUpdateStatusUploadingContent 14224 / 14224
+Status: k_EItemUpdateStatusUploadingContent 14224 / 14224
+Status: k_EItemUpdateStatusUploadingContent 14224 / 14224
+Status: k_EItemUpdateStatusUploadingContent 14224 / 14224
+Status: k_EItemUpdateStatusUploadingContent 14224 / 14224
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusUploadingPreviewFile 0 / 0
+Status: k_EItemUpdateStatusCommittingChanges 0 / 0
+Status: k_EItemUpdateStatusCommittingChanges 0 / 0
+Status: k_EItemUpdateStatusCommittingChanges 0 / 0
+Status: k_EItemUpdateStatusCommittingChanges 0 / 0
+Status: k_EItemUpdateStatusInvalid 0 / 0
+Uploading done!
+Finished...

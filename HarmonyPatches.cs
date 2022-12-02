@@ -47,8 +47,6 @@ namespace AdjustableBandits
 
 		private static IEnumerable<CodeInstruction> Transpiler_MobileParty_FillPartyStacks(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
-			//FileLog.Log("");
-
 			bool applied = false;
 			LocalBuilder lb_f = null, lb_f2 = null, lb_f3 = null;
 			var list = new List<CodeInstruction>(instructions);
@@ -81,8 +79,6 @@ namespace AdjustableBandits
 				}
 			}
 
-			//foreach (var instruction in list)
-			//	FileLog.Log(instruction.ToString());
 			if (!applied)
 				throw new Exception($"{nameof(AdjustableBandits)}: failed to apply Harmony-patch '{nameof(Transpiler_MobileParty_FillPartyStacks)}'");
 			return list;
