@@ -105,34 +105,34 @@ namespace AdjustableBandits
 		public int NumberOfMaximumBanditPartiesInEachHideout { get; set; } = 4;
 
 		[SettingPropertyFloatingInteger(
-			"Maximum Troop Count Factor - First Fight",
+			"Maximum Troop Count in First Fight - Factor",
 			0f,
-			100f,
-			"0",
+			10f,
+			"0.0",
 			RequireRestart = false,
-			HintText = "Actual troop count depends on player progress [Native: 6]",
+			HintText = "Actual count depends on number of troops in hideout and player progress (lowest maximum is 12 with player progress at 0). Set to 0 for unlimited. [Native: 1.0]",
 			Order = 4)]
 		[SettingPropertyGroup("Hideouts")]
-		public float NumberOfMaximumTroopCountForFirstFightInHideout { get; set; } = 6f;
+		public float NumberOfMaximumTroopCountForFirstFightInHideoutFactor { get; set; } = 1f;
 
 		[SettingPropertyFloatingInteger(
-			"Maximum Troop Count Factor - Boss Fight",
+			"Maximum Troop Count in Boss Fight - Factor",
 			0f,
-			100f,
-			"0",
+			10f,
+			"0.0",
 			RequireRestart = false,
-			HintText = "Actual troop count depends on player progress [Native: 5]",
+			HintText = "Actual count depends on number of troops in hideout and player progress (lowest maximum is 6 with player progress at 0). Set to 0 for unlimited. [Native: 1.0]",
 			Order = 5)]
 		[SettingPropertyGroup("Hideouts")]
-		public float NumberOfMaximumTroopCountForBossFightInHideout { get; set; } = 5f;
+		public float NumberOfMaximumTroopCountForBossFightInHideoutFactor { get; set; } = 1f;
 
 		[SettingPropertyFloatingInteger(
 			"Spawn Percentage in First Fight",
 			0f,
-			1f,
+			0.99f,
 			"0%",
 			RequireRestart = false,
-			HintText = "[Native: 75%]",
+			HintText = "Percentage of troops to be spawned in the initial fight before the boss battle. [Native: 75%]",
 			Order = 6)]
 		[SettingPropertyGroup("Hideouts")]
 		public float SpawnPercentageForFirstFightInHideoutMission { get; set; } = 0.75f;
