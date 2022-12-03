@@ -79,7 +79,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(TargetName).dll" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits\Bin\Win64_Shipping_Client\$(TargetName).dll"
+    <PostBuildEvent>copy /Y "$(SolutionDir)_Module\SubModule.xml" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits\SubModule.xml"
+copy /Y "$(TargetDir)$(TargetName).dll" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits\Bin\Win64_Shipping_Client\$(TargetName).dll"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
