@@ -10,39 +10,28 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 
 namespace AdjustableBandits
 {
 	internal static class HarmonyPatches
 	{
-		private static bool _initialized = false;
 		public static void Initialize()
 		{
-			if (_initialized)
-				return;
-			_initialized = true;
-
-			try
+			var method = typeof(MobileParty).GetMethod("FillPartyStacks", BindingFlags.NonPublic | BindingFlags.Instance);
+			var patches = Harmony.GetPatchInfo(method);
+			if (patches?.Transpilers?.Count > 0)
 			{
-				var method = typeof(MobileParty).GetMethod("FillPartyStacks", BindingFlags.NonPublic | BindingFlags.Instance);
-				var patches = Harmony.GetPatchInfo(method);
-				if (patches?.Transpilers?.Count > 0)
-				{
-					string output = "";
-					foreach (var patch in patches.Transpilers)
-						output += patch.ToString();
-					FileLog.Log($"{nameof(AdjustableBandits)}: Warning: transpiler patches detected: {output}");
-				}
-
-				var harmony = new Harmony("sy.adjustablebandits");
-
-				// Patch MobileParty.FillPartyStacks
-				harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_MobileParty_FillPartyStacks)));
+				string output = "";
+				foreach (var patch in patches.Transpilers)
+					output += patch.ToString();
+				FileLog.Log($"{nameof(AdjustableBandits)}: Warning: transpiler patches detected: {output}");
 			}
-			catch (Exception e)
-			{
-				FileLog.Log(e.ToString());
-			}
+
+			var harmony = new Harmony("sy.adjustablebandits");
+
+			// Patch MobileParty.FillPartyStacks
+			harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_MobileParty_FillPartyStacks)));
 		}
 
 		private static IEnumerable<CodeInstruction> Transpiler_MobileParty_FillPartyStacks(IEnumerable<CodeInstruction> instructions, ILGenerator generator)

@@ -21,35 +21,46 @@ namespace AdjustableBandits
 
 		protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 		{
-			base.OnGameStart(game, gameStarterObject);
-			if (game.GameType is Campaign)
+			try
 			{
-				try
+				base.OnGameStart(game, gameStarterObject);
+				if (game.GameType is Campaign)
 				{
 					if (gameStarterObject is CampaignGameStarter campaignGameStarter)
 						campaignGameStarter.AddModel(new AdjustableBanditsDensityModel());
 					else
 						throw new Exception($"Unknown {nameof(gameStarterObject)}: '{gameStarterObject?.GetType()}'");
 				}
-				catch (Exception exception)
-				{
-					FileLog.Log($"{nameof(AdjustableBandits)}: {exception}");
-				}
+			}
+			catch (Exception exc)
+			{
+				var text = $"ERROR: Adjustable Bandits failed to initialize ({nameof(OnGameStart)}):";
+				InformationManager.DisplayMessage(new InformationMessage(text + exc.GetType().ToString(), new Color(1f, 0f, 0f)));
+				FileLog.Log(text + "\n" + exc.ToString());
 			}
 		}
 
 		protected override void OnBeforeInitialModuleScreenSetAsRoot()
 		{
-			base.OnBeforeInitialModuleScreenSetAsRoot();
-			if (isInitialized)
-				return;
+			try
+			{
+				base.OnBeforeInitialModuleScreenSetAsRoot();
+				if (isInitialized)
+					return;
 
-			Settings = GlobalSettings<MCMSettings>.Instance;
-			if (Settings == null)
-				throw new Exception("Settings is null");
+				Settings = GlobalSettings<MCMSettings>.Instance;
+				if (Settings == null)
+					throw new Exception("Settings is null");
 
-			HarmonyPatches.Initialize();
-			isInitialized = true;
+				HarmonyPatches.Initialize();
+				isInitialized = true;
+			}
+			catch (Exception exc)
+			{
+				var text = $"ERROR: Adjustable Bandits failed to initialize ({nameof(OnBeforeInitialModuleScreenSetAsRoot)}):";
+				InformationManager.DisplayMessage(new InformationMessage(text + exc.GetType().ToString(), new Color(1f, 0f, 0f)));
+				FileLog.Log(text + "\n" + exc.ToString());
+			}
 		}
 
 		public static void ModifyVariables(MobileParty mobileParty, ref float f, ref float f2, ref float f3)
