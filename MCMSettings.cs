@@ -13,25 +13,44 @@ namespace AdjustableBandits
 	public class MCMSettings : AttributeGlobalSettings<MCMSettings>
 	{
 		public override string Id => "AdjustableBandits";
-
 		public override string DisplayName => "Adjustable Bandits";
-
 		public override string FolderName => "AdjustableBandits";
-
 		public override string FormatType => "json";
 
+		#region GENERAL
+		//private const string GeneralGroupName = "General";
+		#endregion
 
-		// --- BANDIT POPULATION
+		#region BANDIT POPULATION
+		private const string BanditPopulationGroupName = "Bandit Population";
+
+		[SettingPropertyInteger(
+			"Bandit Party Size Limit (affects Movement Speed)",
+			20,
+			1000,
+			"0",
+			RequireRestart = false,
+			HintText = 
+			"While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. [Native: 0]\n" +
+			"(The party slows down if it has more troops than the size limit.)",
+			Order = 0)]
+		[SettingPropertyGroup(
+			BanditPopulationGroupName,
+			GroupOrder = 1)]
+		public int BanditPartySizeLimit { get; set; } = 20;
+
 
 		[SettingPropertyFloatingInteger(
 			"Bandit Party Size Multiplier", 
 			0.01f, 
 			10.0f, 
-			"0%", 
+			"0.00", 
 			RequireRestart = false,
-			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Native: 100%]",
+			HintText = "Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Native: 1.00]",
 			Order = 0)]
-		[SettingPropertyGroup("Bandit Population")]
+		[SettingPropertyGroup(
+			BanditPopulationGroupName, 
+			GroupOrder = 1)]
 		public float BanditMultiplier { get; set; } = 1f;
 
 
@@ -43,7 +62,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 150]",
 			Order = 1)]
-		[SettingPropertyGroup("Bandit Population")]
+		[SettingPropertyGroup(
+			BanditPopulationGroupName,
+			GroupOrder = 1)]
 		public int NumberOfMaximumLooterParties { get; set; } = 150;
 
 		[SettingPropertyInteger(
@@ -54,11 +75,14 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 8]",
 			Order = 2)]
-		[SettingPropertyGroup("Bandit Population")]
+		[SettingPropertyGroup(
+			BanditPopulationGroupName,
+			GroupOrder = 1)]
 		public int NumberOfMaximumBanditPartiesAroundEachHideout { get; set; } = 8;
+		#endregion
 
-
-		// --- HIDEOUTS
+		#region HIDEOUTS
+		private const string HideoutsGroupName = "Hideouts";
 
 		[SettingPropertyInteger(
 			"Initial Hideouts per Faction",
@@ -68,7 +92,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 3]",
 			Order = 0)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int NumberOfInitialHideoutsAtEachBanditFaction { get; set; } = 3;
 
 		[SettingPropertyInteger(
@@ -79,7 +105,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 10]",
 			Order = 1)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int NumberOfMaximumHideoutsAtEachBanditFaction { get; set; } = 10;
 
 		[SettingPropertyInteger(
@@ -90,7 +118,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 2]",
 			Order = 2)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int NumberOfMinimumBanditPartiesInAHideoutToInfestIt { get; set; } = 2;
 
 		[SettingPropertyInteger(
@@ -101,7 +131,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 4]",
 			Order = 3)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int NumberOfMaximumBanditPartiesInEachHideout { get; set; } = 4;
 
 		[SettingPropertyFloatingInteger(
@@ -112,7 +144,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "Actual count depends on number of troops in hideout and player progress (lowest maximum is 12 with player progress at 0). Set to 0 for unlimited. [Native: 1.0]",
 			Order = 4)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public float NumberOfMaximumTroopCountForFirstFightInHideoutFactor { get; set; } = 1f;
 
 		[SettingPropertyFloatingInteger(
@@ -123,7 +157,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "Actual count depends on number of troops in hideout and player progress (lowest maximum is 6 with player progress at 0). Set to 0 for unlimited. [Native: 1.0]",
 			Order = 5)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public float NumberOfMaximumTroopCountForBossFightInHideoutFactor { get; set; } = 1f;
 
 		[SettingPropertyFloatingInteger(
@@ -134,7 +170,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "Percentage of troops to be spawned in the initial fight before the boss battle. [Native: 75%]",
 			Order = 6)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public float SpawnPercentageForFirstFightInHideoutMission { get; set; } = 0.75f;
 
 
@@ -146,7 +184,9 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 10]",
 			Order = 7)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int NumberOfMinimumBanditTroopsInHideoutMission { get; set; } = 10;
 
 		[SettingPropertyInteger(
@@ -157,7 +197,10 @@ namespace AdjustableBandits
 			RequireRestart = false,
 			HintText = "[Native: 10]",
 			Order = 8)]
-		[SettingPropertyGroup("Hideouts")]
+		[SettingPropertyGroup(
+			HideoutsGroupName,
+			GroupOrder = 2)]
 		public int PlayerMaximumTroopCountForHideoutMission { get; set; } = 10;
+		#endregion
 	}
 }

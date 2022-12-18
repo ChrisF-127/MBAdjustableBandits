@@ -1,16 +1,24 @@
 ﻿using HarmonyLib;
+using Helpers;
+using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Party.PartyComponents;
+using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace AdjustableBandits
 {
@@ -18,23 +26,15 @@ namespace AdjustableBandits
 	{
 		public static void Initialize()
 		{
-			var method = typeof(MobileParty).GetMethod("FillPartyStacks", BindingFlags.NonPublic | BindingFlags.Instance);
-			var patches = Harmony.GetPatchInfo(method);
-			if (patches?.Transpilers?.Count > 0)
-			{
-				string output = "";
-				foreach (var patch in patches.Transpilers)
-					output += patch.ToString();
-				FileLog.Log($"{nameof(AdjustableBandits)}: Warning: transpiler patches detected: {output}");
-			}
-
 			var harmony = new Harmony("sy.adjustablebandits");
 
-			// Patch MobileParty.FillPartyStacks
-			harmony.Patch(method, transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.Transpiler_MobileParty_FillPartyStacks)));
+			harmony.Patch(AccessTools.Method(typeof(MobileParty), "FillPartyStacks"), 
+				transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.MobileParty_FillPartyStacks_Transpiler)));
+			harmony.Patch(AccessTools.Method(typeof(DefaultPartySizeLimitModel), "CalculateMobilePartyMemberSizeLimit"),
+				postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.DefaultPartySizeLimitModel_CalculateMobilePartyMemberSizeLimit_Postfix)));
 		}
 
-		private static IEnumerable<CodeInstruction> Transpiler_MobileParty_FillPartyStacks(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+		private static IEnumerable<CodeInstruction> MobileParty_FillPartyStacks_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
 		{
 			bool applied = false;
 			LocalBuilder lb_f = null, lb_f2 = null, lb_f3 = null;
@@ -69,8 +69,19 @@ namespace AdjustableBandits
 			}
 
 			if (!applied)
-				throw new Exception($"{nameof(AdjustableBandits)}: failed to apply Harmony-patch '{nameof(Transpiler_MobileParty_FillPartyStacks)}'");
+				throw new Exception($"{nameof(AdjustableBandits)}: failed to apply Harmony-patch '{nameof(MobileParty_FillPartyStacks_Transpiler)}'");
 			return list;
+		}
+
+		private static void DefaultPartySizeLimitModel_CalculateMobilePartyMemberSizeLimit_Postfix(ref ExplainedNumber __result, MobileParty party)
+		{
+			if (party.IsBandit)
+			{
+				const int baseLimit = 20;
+				var sizeLimit = AdjustableBandits.Settings.BanditPartySizeLimit;
+				if (sizeLimit > baseLimit)
+					__result.Add(sizeLimit - baseLimit, new TextObject("Bandit Bonus"));
+			}
 		}
 	}
 }
