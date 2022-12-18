@@ -31,7 +31,7 @@ namespace AdjustableBandits
 			"0",
 			RequireRestart = false,
 			HintText = 
-			"While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. [Native: 0]\n" +
+			"While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. [Native: 20]\n" +
 			"(The party slows down if it has more troops than the size limit.)",
 			Order = 0)]
 		[SettingPropertyGroup(
