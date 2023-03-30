@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bannerlord.MCM">
-      <Version>5.6.1</Version>
+      <Version>5.5.5</Version>
     </PackageReference>
     <PackageReference Include="Bannerlord.ReferenceAssemblies">
       <Version>1.1.2.14580</Version>
@@ -79,9 +79,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>del "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits"
+    <PostBuildEvent>del "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits" /Q
 xcopy "$(SolutionDir)_Module" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits" /E /I /Y
-copy /Y "$(TargetDir)$(TargetName).dll" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits\Bin\Win64_Shipping_Client\$(TargetName).dll"
+xcopy "$(TargetDir)$(TargetName).dll" "F:\Steam\SteamApps\common\Mount &amp; Blade II Bannerlord\Modules\AdjustableBandits\Bin\Win64_Shipping_Client\$(TargetName).dll" /Y
 </PostBuildEvent>
   </PropertyGroup>
 </Project>
