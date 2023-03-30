@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="Deutsch" />
+	</tags>
+	<strings>
+			
+		<!-- SETTINGS-->
+		
+		<string 
+			id="adjban_group_GeneralSettings" 
+			text="Generelle Einstellungen" />
+		<string 
+			id="adjban_group_BanditPopulation" 
+			text="Banditen Population" />
+		<string 
+			id="adjban_group_Hideouts" 
+			text="Verstecke" />
+		
+		<string 
+			id="adjban_name_BanditPartySizeMultiplier" 
+			text="Banditen Truppgrößen-Multiplikator" />
+		<string 
+			id="adjban_hint_BanditPartySizeMultiplier" 
+			text="Passt die Größe aller Banditen Trupps an. Gilt nur für neu generierte Trupps. Große Trupps können negative Auswirkung auf die Spiel-Performance haben. [Standard: 1.00]" />
+			
+		<string 
+			id="adjban_name_BanditPartySizeLimit" 
+			text="Banditen Truppgrößenlimit (beeinflusst Truppgeschwindigkeit)" />
+		<string 
+			id="adjban_hint_BanditPartySizeLimit" 
+			text="Banditen Truppen desertieren nicht, jedoch verringert sich die Geschwindigkeit der Truppe wenn sie über dem Limit ist. Ein höheres Limit erhöht daher die Geschwindigkeit großer Trupps. (Ein Trupp wird langsamer, wenn er mehr Truppen als das Limit hat.) [Standard: 20]" />
+			
+		<string 
+			id="adjban_name_MaxNumLooterParties" 
+			text="Maximale Anzahl an Plünderer Trupps" />
+		<string 
+			id="adjban_hint_MaxNumLooterParties" 
+			text="Maximale Anzahl an Plünderer Trupps auf der gesamten Weltkarte. [Standard: 150]" />
+			
+		<string 
+			id="adjban_name_MaxPartiesAroundHideout" 
+			text="Maximale Anzahl an Trupps um Verstecke" />
+		<string 
+			id="adjban_hint_MaxPartiesAroundHideout" 
+			text="Maximale Anzahl an Fraktions-Trupps in der Umgebung von Verstecken. [Standard: 8]" />
+			
+		<string 
+			id="adjban_name_InitialHideoutsPerFaction" 
+			text="Anfängliche Anzahl an Verstecken pro Fraktion" />
+		<string 
+			id="adjban_hint_InitialHideoutsPerFaction" 
+			text="[Standard: 3]" />
+			
+		<string 
+			id="adjban_name_MaxHideoutsPerFaction" 
+			text="Maximale Anzahl an Verstecken pro Fraktion" />
+		<string 
+			id="adjban_hint_MaxHideoutsPerFaction" 
+			text="[Standard: 10]" />
+			
+		<string 
+			id="adjban_name_MinPartiesToInfestHideout" 
+			text="Mindestanzahl an Trupps um Versteck zu bevölkern" />
+		<string 
+			id="adjban_hint_MinPartiesToInfestHideout" 
+			text="[Standard: 2]" />
+			
+		<string 
+			id="adjban_name_MaxPartiesInHideout" 
+			text="Maximale Anzahl an Trupps in Versteck" />
+		<string 
+			id="adjban_hint_MaxPartiesInHideout" 
+			text="[Standard: 4]" />
+			
+		<string 
+			id="adjban_name_MaxTroopCountFirstFight" 
+			text="Maximale Anzahl an Truppen im Versteck-Kampf - Faktor" />
+		<string 
+			id="adjban_hint_MaxTroopCountFirstFight" 
+			text="Tatsächliche Anzahl ist abhängig von der Anzahl der Truppen im Versteck und dem Fortschritt des Spielers (niedrigste Anzahl ist 12, bei Spieler-Fortschritt von 0). Der Wert 0 deaktiviert das Limit. [Standard: 1.0]" />
+			
+		<string 
+			id="adjban_name_MaxTroopCountBossFight" 
+			text="Maximale Anzahl an Truppen im Boss-Kampf - Faktor" />
+		<string 
+			id="adjban_hint_MaxTroopCountBossFight" 
+			text="Tatsächliche Anzahl ist abhängig von der Anzahl der Truppen im Versteck und dem Fortschritt des Spielers (niedrigste Anzahl ist 6, bei Spieler-Fortschritt von 0). Der Wert 0 deaktiviert das Limit. [Standard: 1.0]" />
+			
+		<string 
+			id="adjban_name_SpawnPercFirstFight" 
+			text="Spawn-Anteil im Versteck-Kampf" />
+		<string 
+			id="adjban_hint_SpawnPercFirstFight" 
+			text="Anteil der Truppen welche im Kampf durch das Versteck spawnen, vor dem Boss-Kampf. [Standard: 75%]" />
+			
+		<string 
+			id="adjban_name_MinBanditTroopsHideoutMission" 
+			text="Mindestanzahl an Banditen Truppen in Versteck-Missionen" />
+		<string 
+			id="adjban_hint_MinBanditTroopsHideoutMission" 
+			text="[Standard: 10]" />
+			
+		<string 
+			id="adjban_name_MaxPlayerTroopsHideoutMission" 
+			text="Maximale Anzahl an Spieler Truppen in Versteck-Missionen" />
+		<string 
+			id="adjban_hint_MaxPlayerTroopsHideoutMission" 
+			text="[Standard: 10]" />
+			
+		<!-- FORMAT -->
+			
+		<string 
+			id="adjban_format_Parties" 
+			text="0 Trupps" />
+		<string 
+			id="adjban_format_Hideouts" 
+			text="0 Verstecke" />
+		<string 
+			id="adjban_format_Troops" 
+			text="0 Truppen" />
+			
+		<!-- OTHER -->
+			
+		<string 
+			id="adjban_text_BanditBonus" 
+			text="Banditen Bonus" />
+			
+	</strings>
+</base>

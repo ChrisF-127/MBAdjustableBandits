@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<base xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" type="string">
+	<tags>
+		<tag language="English" />
+	</tags>
+	<strings>
+			
+		<!-- SETTINGS-->
+		
+		<string 
+			id="adjban_group_GeneralSettings" 
+			text="General Settings" />
+		<string 
+			id="adjban_group_BanditPopulation" 
+			text="Bandit Population" />
+		<string 
+			id="adjban_group_Hideouts" 
+			text="Hideouts" />
+		
+		<string 
+			id="adjban_name_BanditPartySizeMultiplier" 
+			text="Bandit Party Size Multiplier" />
+		<string 
+			id="adjban_hint_BanditPartySizeMultiplier" 
+			text="Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Default: 1.00]" />
+			
+		<string 
+			id="adjban_name_BanditPartySizeLimit" 
+			text="Bandit Party Size Limit (affects Movement Speed)" />
+		<string 
+			id="adjban_hint_BanditPartySizeLimit" 
+			text="While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. (The party slows down if it has more troops than the size limit.) [Default: 20]" />
+			
+		<string 
+			id="adjban_name_MaxNumLooterParties" 
+			text="Maximum Number of Looter Parties" />
+		<string 
+			id="adjban_hint_MaxNumLooterParties" 
+			text="Maximum number of looter parties on the entire world map. [Default: 150]" />
+			
+		<string 
+			id="adjban_name_MaxPartiesAroundHideout" 
+			text="Maximum Parties around Hideout" />
+		<string 
+			id="adjban_hint_MaxPartiesAroundHideout" 
+			text="Maximum number of faction-parties around hideouts. [Default: 8]" />
+			
+		<string 
+			id="adjban_name_InitialHideoutsPerFaction" 
+			text="Initial Hideouts per Faction" />
+		<string 
+			id="adjban_hint_InitialHideoutsPerFaction" 
+			text="[Default: 3]" />
+			
+		<string 
+			id="adjban_name_MaxHideoutsPerFaction" 
+			text="Maximum Hideouts per Faction" />
+		<string 
+			id="adjban_hint_MaxHideoutsPerFaction" 
+			text="[Default: 10]" />
+			
+		<string 
+			id="adjban_name_MinPartiesToInfestHideout" 
+			text="Minimum Parties to Infest Hideout" />
+		<string 
+			id="adjban_hint_MinPartiesToInfestHideout" 
+			text="[Default: 2]" />
+			
+		<string 
+			id="adjban_name_MaxPartiesInHideout" 
+			text="Maximum Parties in Hideout" />
+		<string 
+			id="adjban_hint_MaxPartiesInHideout" 
+			text="[Default: 4]" />
+			
+		<string 
+			id="adjban_name_MaxTroopCountFirstFight" 
+			text="Maximum Troop Count in First Fight - Factor" />
+		<string 
+			id="adjban_hint_MaxTroopCountFirstFight" 
+			text="Actual count depends on number of troops in hideout and player progress (lowest maximum is 12 with player progress at 0). Set to 0 for unlimited. [Default: 1.0]" />
+			
+		<string 
+			id="adjban_name_MaxTroopCountBossFight" 
+			text="Maximum Troop Count in Boss Fight - Factor" />
+		<string 
+			id="adjban_hint_MaxTroopCountBossFight" 
+			text="Actual count depends on number of troops in hideout and player progress (lowest maximum is 6 with player progress at 0). Set to 0 for unlimited. [Default: 1.0]" />
+			
+		<string 
+			id="adjban_name_SpawnPercFirstFight" 
+			text="Spawn Percentage in First Fight" />
+		<string 
+			id="adjban_hint_SpawnPercFirstFight" 
+			text="Percentage of troops to be spawned in the initial fight before the boss battle. [Default: 75%]" />
+			
+		<string 
+			id="adjban_name_MinBanditTroopsHideoutMission" 
+			text="Minimum Bandit Troops in Hideout Mission" />
+		<string 
+			id="adjban_hint_MinBanditTroopsHideoutMission" 
+			text="[Default: 10]" />
+			
+		<string 
+			id="adjban_name_MaxPlayerTroopsHideoutMission" 
+			text="Maximum Player Troops in Hideout Mission" />
+		<string 
+			id="adjban_hint_MaxPlayerTroopsHideoutMission" 
+			text="[Default: 10]" />
+			
+		<!-- FORMAT -->
+			
+		<string 
+			id="adjban_format_Parties" 
+			text="0 Parties" />
+		<string 
+			id="adjban_format_Hideouts" 
+			text="0 Hideouts" />
+		<string 
+			id="adjban_format_Troops" 
+			text="0 Troops" />
+			
+		<!-- OTHER -->
+			
+		<string 
+			id="adjban_text_BanditBonus" 
+			text="Bandit Bonus" />
+			
+	</strings>
+</base>

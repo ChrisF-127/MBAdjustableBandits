@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Helpers;
-using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,7 +79,7 @@ namespace AdjustableBandits
 				const int baseLimit = 20;
 				var sizeLimit = AdjustableBandits.Settings.BanditPartySizeLimit;
 				if (sizeLimit > baseLimit)
-					__result.Add(sizeLimit - baseLimit, new TextObject("Bandit Bonus"));
+					__result.Add(sizeLimit - baseLimit, new TextObject("{=adjban_text_BanditBonus}Bandit Bonus"));
 			}
 		}
 	}
