@@ -5,7 +5,7 @@
 	</tags>
 	<strings>
 			
-		<!-- SETTINGS-->
+		<!-- SETTINGS -->
 		
 		<string 
 			id="adjban_group_GeneralSettings" 
@@ -29,7 +29,7 @@
 			text="Bandit Party Size Limit (affects Movement Speed)" />
 		<string 
 			id="adjban_hint_BanditPartySizeLimit" 
-			text="While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. (The party slows down if it has more troops than the size limit.) [Default: 20]" />
+			text="While it does not make the bandit party's troops desert, being over the limit slows down the party. A higher limit lessens or removes the malus, increasing movement speed. (The party slows down if it has more troops than the size limit.) Requires reloading! [Default: 20]" />
 			
 		<string 
 			id="adjban_name_MaxNumLooterParties" 

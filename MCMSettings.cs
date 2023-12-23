@@ -27,7 +27,7 @@ namespace AdjustableBandits
 		[SettingPropertyFloatingInteger(
 			"{=adjban_name_BanditPartySizeMultiplier}Bandit Party Size Multiplier", 
 			0.01f, 
-			10.0f, 
+			100.0f, 
 			"0.00", 
 			RequireRestart = false,
 			HintText = "{=adjban_hint_BanditPartySizeMultiplier}Adjusts the size of all bandit parties. Only newly spawned parties are affected. High values may decrease performance and may have negative influence on game experience. [Default: 1.00]",

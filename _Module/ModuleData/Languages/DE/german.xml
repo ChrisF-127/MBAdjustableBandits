@@ -29,7 +29,7 @@
 			text="Banditen Truppgrößenlimit (beeinflusst Truppgeschwindigkeit)" />
 		<string 
 			id="adjban_hint_BanditPartySizeLimit" 
-			text="Banditen Truppen desertieren nicht, jedoch verringert sich die Geschwindigkeit der Truppe wenn sie über dem Limit ist. Ein höheres Limit erhöht daher die Geschwindigkeit großer Trupps. (Ein Trupp wird langsamer, wenn er mehr Truppen als das Limit hat.) [Standard: 20]" />
+			text="Banditen Truppen desertieren nicht, jedoch verringert sich die Geschwindigkeit der Truppe wenn sie über dem Limit ist. Ein höheres Limit erhöht daher die Geschwindigkeit großer Trupps. (Ein Trupp wird langsamer, wenn er mehr Truppen als das Limit hat.) Änderung wird erst nach erneutem Laden des Spielstands wirksam! [Standard: 20]" />
 			
 		<string 
 			id="adjban_name_MaxNumLooterParties" 
