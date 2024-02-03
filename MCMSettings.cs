@@ -54,8 +54,8 @@ namespace AdjustableBandits
 
 		[SettingPropertyInteger(
 			"{=adjban_name_MaxNumLooterParties}Maximum Number of Looter Parties",
-			50,
-			600,
+			0,
+			1000,
 			"{=adjban_format_Parties}0 Parties",
 			RequireRestart = false,
 			HintText = "{=adjban_hint_MaxNumLooterParties}Maximum number of looter parties on the entire world map. [Default: 150]",
@@ -68,7 +68,7 @@ namespace AdjustableBandits
 		[SettingPropertyInteger(
 			"{=adjban_name_MaxPartiesAroundHideout}Maximum Parties around Hideout",
 			1,
-			32,
+			100,
 			"{=adjban_format_Parties}0 Parties",
 			RequireRestart = false,
 			HintText = "{=adjban_hint_MaxPartiesAroundHideout}Maximum number of faction-parties around hideouts. [Default: 8]",
@@ -84,8 +84,8 @@ namespace AdjustableBandits
 
 		[SettingPropertyInteger(
 			"{=adjban_name_InitialHideoutsPerFaction}Initial Hideouts per Faction",
-			1,
-			15,
+			0,
+			50,
 			"{=adjban_format_Hideouts}0 Hideouts",
 			RequireRestart = false,
 			HintText = "{=adjban_hint_InitialHideoutsPerFaction}[Default: 3]",
@@ -97,8 +97,8 @@ namespace AdjustableBandits
 
 		[SettingPropertyInteger(
 			"{=adjban_name_MaxHideoutsPerFaction}Maximum Hideouts per Faction",
-			1,
-			25,
+			0,
+			100,
 			"{=adjban_format_Hideouts}0 Hideouts",
 			RequireRestart = false,
 			HintText = "{=adjban_hint_MaxHideoutsPerFaction}[Default: 10]",
