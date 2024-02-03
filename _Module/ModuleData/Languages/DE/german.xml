@@ -16,6 +16,9 @@
 		<string 
 			id="adjban_group_Hideouts" 
 			text="Verstecke" />
+    <string
+			id="adjban_group_Actions"
+			text="Aktionen" />
 		
 		<string 
 			id="adjban_name_BanditPartySizeMultiplier" 
@@ -107,6 +110,49 @@
 		<string 
 			id="adjban_hint_MaxPlayerTroopsHideoutMission" 
 			text="[Standard: 10]" />
+
+    <string
+			id="adjban_name_RemoveBanditParties"
+			text="Entferne alle Banditen-Trupps" />
+    <string
+			id="adjban_hint_RemoveBanditParties"
+			text="Entfernt alle Banditen-Trupps im laufenden Spiel; kann nicht rückgängig gemacht werden!" />
+    <string
+			id="adjban_content_RemoveBanditParties"
+			text="Entferne Banditen-Trupps" />
+
+    <string
+			id="adjban_inquiryTitle_RemoveBandits"
+			text="Banditen-Trupps entfernen..." />
+    <string
+			id="adjban_inquiryText_RemoveBandits"
+			text="Alle Banditen-Trupps entfernen?
+      Kann nicht rückgängig gemacht werden!" />
+
+    <string
+			id="adjban_yes"
+			text="Ja" />
+    <string
+			id="adjban_no"
+			text="Nein" />
+
+    <string
+			id="adjban_name_RemoveHideouts"
+			text="Entferne alle Verstecke" />
+    <string
+			id="adjban_hint_RemoveHideouts"
+			text="Entfernt alle Verstecke im laufenden Spiel; kann nicht rückgängig gemacht werden!" />
+    <string
+			id="adjban_content_RemoveHideouts"
+			text="Entferne Verstecke" />
+
+    <string
+			id="adjban_inquiryTitle_RemoveHideouts"
+			text="Verstecke entfernen..." />
+    <string
+			id="adjban_inquiryText_RemoveHideouts"
+			text="Alle Verstecke entfernen?
+      Kann nicht rückgängig gemacht werden!" />
 			
 		<!-- FORMAT -->
 			

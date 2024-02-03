@@ -6,7 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaleWorlds.CampaignSystem.Extensions;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+using TaleWorlds.Library;
+using TaleWorlds.Localization;
+using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.MapEvents;
 
 namespace AdjustableBandits
 {
@@ -199,6 +206,146 @@ namespace AdjustableBandits
 			HideoutsGroupName,
 			GroupOrder = 2)]
 		public int PlayerMaximumTroopCountForHideoutMission { get; set; } = 10;
+		#endregion
+
+		#region ACTIONS
+		private const string ActionsGroupName = "{=adjban_group_Actions}Actions";
+
+		[SettingPropertyButton(
+			"{=adjban_name_RemoveBanditParties}Remove all bandit parties",
+			RequireRestart = false,
+			HintText = "{=adjban_hint_RemoveBanditParties}Removes all bandit parties from the current game, this cannot be undone!",
+			Content = "{=adjban_content_RemoveBanditParties}Remove bandits",
+			Order = 0)]
+		[SettingPropertyGroup(
+			ActionsGroupName,
+			GroupOrder = 3)]
+		public Action RemoveAllBanditParties { get; set; } = () =>
+		{
+			InformationManager.ShowInquiry(
+				new InquiryData(
+					new TextObject("{=adjban_inquiryTitle_RemoveBandits}Removing Bandits...").ToString(),
+					new TextObject("{=adjban_inquiryText_RemoveBandits}Remove all bandit parties?\nThis cannot be undone!").ToString(), 
+					true, true,
+					new TextObject("{=adjban_yes}Yes").ToString(),
+					new TextObject("{=adjban_no}No").ToString(),
+					action,
+					() => { }));
+
+			void action()
+			{
+				int partiesRemoved = 0;
+				int partiesNotRemovedSettlement = 0;
+				int partiesNotRemovedMapEvent = 0;
+				int troopsRemoved = 0;
+				int troopsHideout = 0;
+				int troopsMapEvent = 0;
+
+				var parties = MobileParty.AllBanditParties;
+				if (parties?.Count > 0)
+				{
+					for (int i = parties.Count - 1; i >= 0; i--)
+					{
+						var party = parties[i];
+						if (party == null)
+							continue;
+						if (party.CurrentSettlement != null)
+						{
+							partiesNotRemovedSettlement++;
+							troopsHideout += party.MemberRoster?.TotalManCount ?? 0;
+							continue;
+						}
+						if (party.Party?.MapEvent != null)
+						{
+							partiesNotRemovedMapEvent++;
+							troopsMapEvent += party.MemberRoster?.TotalManCount ?? 0;
+							continue;
+						}
+						troopsRemoved += party.MemberRoster?.TotalManCount ?? 0;
+						party.RemoveParty();
+						partiesRemoved++;
+					}	
+				}
+				InformationManager.DisplayMessage(new InformationMessage(
+					"Bandit Party Removal:" +
+					$"\n {partiesRemoved} parties removed ({troopsRemoved} troops)" +
+					$"\n {partiesNotRemovedSettlement} parties in hideouts were not removed ({troopsHideout} troops)" +
+					$"\n {partiesNotRemovedMapEvent} parties could not be removed due to map events ({troopsMapEvent} troops)"));
+			}
+		};
+
+		[SettingPropertyButton(
+			"{=adjban_name_RemoveHideouts}Remove all hideouts",
+			RequireRestart = false,
+			HintText = "{=adjban_hint_RemoveHideouts}Removes all hideouts from the current game, this cannot be undone!",
+			Content = "{=adjban_content_RemoveHideouts}Remove hideouts",
+			Order = 1)]
+		[SettingPropertyGroup(
+			ActionsGroupName,
+			GroupOrder = 3)]
+		public Action RemoveAllHideouts { get; set; } = () =>
+		{
+			InformationManager.ShowInquiry(
+				new InquiryData(
+					new TextObject("{=adjban_inquiryTitle_RemoveHideouts}Removing Hideouts...").ToString(),
+					new TextObject("{=adjban_inquiryText_RemoveHideouts}Remove all hideouts?\nThis cannot be undone!").ToString(),
+					true, true,
+					new TextObject("{=adjban_yes}Yes").ToString(),
+					new TextObject("{=adjban_no}No").ToString(),
+					action,
+					() => { }));
+
+			void action()
+			{
+				int hideoutsRemoved = 0;
+				int hideoutsNotRemoved = 0;
+				int partiesRemoved = 0;
+				int partiesNotRemovedMapEvent = 0;
+				int troopsRemoved = 0;
+				int troopsHideout = 0;
+				int troopsMapEvent = 0;
+
+				var hideouts = Hideout.All;
+				if (hideouts != null)
+				{
+					for (int i = hideouts.Count - 1; i >= 0; i--)
+					{
+						var hideout = hideouts[i];
+						if (hideout == null)
+							continue;
+						var parties = hideout.GetDefenderParties(MapEvent.BattleTypes.Hideout)?.ToList();
+						if (parties?.Count > 0)
+						{
+							foreach (var party in parties)
+							{
+								if (party?.MobileParty == null)
+									continue;
+								if (party.MobileParty.Party?.MapEvent != null)
+								{
+									troopsMapEvent += party.MemberRoster?.TotalManCount ?? 0;
+									partiesNotRemovedMapEvent++;
+									continue;
+								}
+								troopsRemoved += party.MemberRoster?.TotalManCount ?? 0;
+								party.MobileParty.RemoveParty();
+								partiesRemoved++;
+							}
+
+							if (!hideout.Owner.Settlement.IsVisible)
+								hideoutsRemoved++;
+							else
+								hideoutsNotRemoved++;
+						}
+					}
+				}
+				InformationManager.DisplayMessage(new InformationMessage(
+					"Hideout Removal:" +
+					$"\n {hideoutsRemoved} hideouts removed" +
+					$"\n {hideoutsNotRemoved} hideouts not removed" +
+					$"\n {partiesRemoved} parties removed from hideouts ({troopsRemoved} troops)" +
+					$"\n {partiesNotRemovedMapEvent} parties could not be removed due to map events ({troopsMapEvent} troops)"));
+			}
+		};
 		#endregion
 	}
 }

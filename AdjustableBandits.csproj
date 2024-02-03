@@ -68,14 +68,29 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Bannerlord.MCM">
-      <Version>5.9.1</Version>
+      <Version>5.9.2</Version>
     </PackageReference>
     <PackageReference Include="Bannerlord.ReferenceAssemblies">
-      <Version>1.2.8.31530</Version>
+      <Version>1.2.9.33689</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.2.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Module\ModuleData\Languages\DE\german.xml" />
+    <Content Include="_Module\ModuleData\Languages\DE\language_data.xml" />
+    <Content Include="_Module\ModuleData\Languages\english.xml" />
+    <Content Include="_Module\SubModule.xml" />
+    <Content Include="_Workshop\Image.png" />
+    <Content Include="_Workshop\MB2_AdjustableBandits_Settings.png" />
+    <Content Include="_Workshop\old\MB2_AdjustableBandits_Settings.png" />
+    <Content Include="_Workshop\steam_appid.txt" />
+    <Content Include="_Workshop\steam_workshop_uploader.txt" />
+    <Content Include="_Workshop\WorkshopUpdate.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_Workshop\WorkshopUpdate.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

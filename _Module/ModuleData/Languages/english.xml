@@ -16,6 +16,9 @@
 		<string 
 			id="adjban_group_Hideouts" 
 			text="Hideouts" />
+    <string
+			id="adjban_group_Actions"
+			text="Actions" />
 		
 		<string 
 			id="adjban_name_BanditPartySizeMultiplier" 
@@ -107,8 +110,52 @@
 		<string 
 			id="adjban_hint_MaxPlayerTroopsHideoutMission" 
 			text="[Default: 10]" />
-			
-		<!-- FORMAT -->
+
+    <string
+			id="adjban_name_RemoveBanditParties"
+			text="Remove all bandit parties" />
+    <string
+			id="adjban_hint_RemoveBanditParties"
+			text="Removes all bandit parties from the current game, this cannot be undone!" />
+    <string
+			id="adjban_content_RemoveBanditParties"
+			text="Remove bandit parties" />
+    
+    <string
+			id="adjban_inquiryTitle_RemoveBandits"
+			text="Removing Bandits..." />
+    <string
+			id="adjban_inquiryText_RemoveBandits"
+			text="Remove all bandit parties?
+      This cannot be undone!" />
+    
+    <string
+			id="adjban_yes"
+			text="Yes" />
+    <string
+			id="adjban_no"
+			text="No" />
+
+    <string
+			id="adjban_name_RemoveHideouts"
+			text="Remove all hideouts" />
+    <string
+			id="adjban_hint_RemoveHideouts"
+			text="Removes all hideouts from the current game, this cannot be undone!" />
+    <string
+			id="adjban_content_RemoveHideouts"
+			text="Remove hideouts" />
+
+    <string
+			id="adjban_inquiryTitle_RemoveHideouts"
+			text="Removing Hideouts..." />
+    <string
+			id="adjban_inquiryText_RemoveHideouts"
+			text="Remove all hideouts?
+      This cannot be undone!" />
+    
+
+    <!-- FORMAT -->
 			
 		<string 
 			id="adjban_format_Parties" 
