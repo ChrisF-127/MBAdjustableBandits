@@ -28,9 +28,9 @@ namespace AdjustableBandits
 			var harmony = new Harmony("sy.adjustablebandits");
 
 			harmony.Patch(AccessTools.Method(typeof(MobileParty), "FillPartyStacks"), 
-				transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.MobileParty_FillPartyStacks_Transpiler)));
+				transpiler: new HarmonyMethod(typeof(HarmonyPatches), nameof(MobileParty_FillPartyStacks_Transpiler)));
 			harmony.Patch(AccessTools.Method(typeof(DefaultPartySizeLimitModel), "CalculateMobilePartyMemberSizeLimit"),
-				postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(HarmonyPatches.DefaultPartySizeLimitModel_CalculateMobilePartyMemberSizeLimit_Postfix)));
+				postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(DefaultPartySizeLimitModel_CalculateMobilePartyMemberSizeLimit_Postfix)));
 		}
 
 		private static IEnumerable<CodeInstruction> MobileParty_FillPartyStacks_Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
