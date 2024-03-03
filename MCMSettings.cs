@@ -302,7 +302,6 @@ namespace AdjustableBandits
 				int partiesRemoved = 0;
 				int partiesNotRemovedMapEvent = 0;
 				int troopsRemoved = 0;
-				int troopsHideout = 0;
 				int troopsMapEvent = 0;
 
 				var hideouts = Hideout.All;
